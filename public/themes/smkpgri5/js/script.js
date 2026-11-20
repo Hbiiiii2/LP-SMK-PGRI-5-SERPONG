@@ -472,6 +472,72 @@
     });
   }
 
+  /* 12. Global Lazy Loading + Shimmer Skeleton Placeholder */
+  function initLazyMedia() {
+    var imgs = qsa('main img, footer img');
+    imgs.forEach(function (img, idx) {
+      if (!img.getAttribute('decoding')) {
+        img.setAttribute('decoding', 'async');
+      }
+      if (!img.getAttribute('loading') && idx > 0) {
+        img.setAttribute('loading', 'lazy');
+      }
+
+      var host = img.parentElement;
+      if (img.complete && img.naturalWidth > 0) {
+        img.classList.add('is-img-loaded');
+        return;
+      }
+
+      img.classList.add('is-img-loading');
+      if (host && host.tagName !== 'BODY' && host.tagName !== 'A') {
+        host.classList.add('img-skel-host');
+      }
+
+      function markDone() {
+        img.classList.remove('is-img-loading');
+        img.classList.add('is-img-loaded');
+        if (host) host.classList.remove('img-skel-host');
+      }
+
+      img.addEventListener('load', markDone, { once: true });
+      img.addEventListener('error', markDone, { once: true });
+      setTimeout(markDone, 6000);
+    });
+  }
+
+  /* 13. Top Navigation Progress Bar for Slow Networks */
+  function initNavProgress() {
+    var bar = qs('#navProgressBar');
+    if (!bar) return;
+
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (link.target && link.target !== '_self') return;
+      if (link.hasAttribute('download')) return;
+
+      var href = link.getAttribute('href') || '';
+      if (!href || href.charAt(0) === '#' || href.indexOf('javascript:') === 0 || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) {
+        return;
+      }
+
+      try {
+        var dest = new URL(link.href, window.location.href);
+        if (dest.origin === window.location.origin && dest.href !== window.location.href) {
+          bar.classList.add('is-active');
+        }
+      } catch (err) {
+        // Ignore invalid URLs
+      }
+    });
+
+    window.addEventListener('pageshow', function () {
+      bar.classList.remove('is-active');
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     syncCsrfInputs();
     initMasthead();
@@ -485,5 +551,7 @@
     initArticleTools();
     initFooterUtilities();
     initProgramExplorer();
+    initLazyMedia();
+    initNavProgress();
   });
 })();

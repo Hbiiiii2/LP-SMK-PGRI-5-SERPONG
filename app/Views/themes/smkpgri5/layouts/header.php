@@ -66,6 +66,8 @@ $spmbLabel      = strtr($spmbLabelRaw !== '' ? $spmbLabelRaw : 'Info SPMB', ['Â
 $cssAsset = is_file(FCPATH . 'themes/' . active_theme() . '/css/style.min.css')
     ? 'css/style.min.css'
     : 'css/style.css';
+$tokensVer = @filemtime(FCPATH . 'themes/' . active_theme() . '/css/tokens.css') ?: '1';
+$styleVer  = @filemtime(FCPATH . 'themes/' . active_theme() . '/' . $cssAsset) ?: '1';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -84,11 +86,32 @@ $cssAsset = is_file(FCPATH . 'themes/' . active_theme() . '/css/style.min.css')
 <meta property="og:url" content="<?= esc(current_url()) ?>">
 <meta property="og:image" content="<?= esc($ogImage) ?>">
 <meta name="twitter:card" content="summary_large_image">
+<style>
+#sitePreloader{position:fixed;inset:0;z-index:99999;background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px;text-align:center;transition:opacity .38s ease,visibility .38s ease}
+#sitePreloader.is-done{opacity:0;visibility:hidden;pointer-events:none}
+#sitePreloader.is-skip{display:none!important}
+.sp-ring-wrap{position:relative;width:76px;height:76px;display:flex;align-items:center;justify-content:center}
+.sp-ring{position:absolute;inset:0;border-radius:50%;border:3px solid #e0e7ff;border-top-color:#1b61c9;animation:spSpin .9s linear infinite}
+.sp-crest{width:46px;height:46px;border-radius:12px;background:#eff6ff;color:#1b61c9;display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif;font-weight:800;font-size:15px;letter-spacing:-.02em;box-shadow:0 4px 14px rgba(27,97,201,.14)}
+.sp-title{margin:0;font-family:system-ui,-apple-system,sans-serif;font-size:17px;font-weight:700;color:#181d26;letter-spacing:-.01em}
+.sp-sub{margin:-10px 0 0;font-family:system-ui,-apple-system,sans-serif;font-size:13px;color:#64748b}
+.sp-bar{width:180px;height:4px;border-radius:999px;background:#e2e8f0;overflow:hidden;position:relative}
+.sp-bar-fill{position:absolute;inset:0 auto 0 0;width:45%;border-radius:999px;background:linear-gradient(90deg,#1b61c9,#2d7ff9);animation:spSlide 1.2s ease-in-out infinite}
+#navProgressBar{position:fixed;top:0;left:0;height:3px;width:0;z-index:99998;background:linear-gradient(90deg,#1b61c9,#2d7ff9);box-shadow:0 0 8px rgba(27,97,201,.45);opacity:0;pointer-events:none;transition:width .35s ease,opacity .25s ease}
+#navProgressBar.is-active{opacity:1;width:78%}
+.img-skel-host{position:relative;background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 50%,#f1f5f9 75%);background-size:200% 100%;animation:spShimmer 1.35s ease-in-out infinite}
+img.is-img-loading{opacity:0;background:linear-gradient(90deg,#f1f5f9 25%,#e2e8f0 50%,#f1f5f9 75%);background-size:200% 100%;animation:spShimmer 1.35s ease-in-out infinite}
+img.is-img-loaded{opacity:1;transition:opacity .35s ease}
+@keyframes spSpin{to{transform:rotate(360deg)}}
+@keyframes spSlide{0%{transform:translateX(-110%)}50%{transform:translateX(85%)}100%{transform:translateX(260%)}}
+@keyframes spShimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.sp-ring,.sp-bar-fill,.img-skel-host,img.is-img-loading{animation:none!important}}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="<?= esc(theme_asset('css/tokens.css')) ?>">
-<link rel="stylesheet" href="<?= esc(theme_asset($cssAsset)) ?>">
+<link rel="stylesheet" href="<?= esc(theme_asset('css/tokens.css')) ?>?v=<?= esc((string) $tokensVer) ?>">
+<link rel="stylesheet" href="<?= esc(theme_asset($cssAsset)) ?>?v=<?= esc((string) $styleVer) ?>">
 <?php if (! empty($ldjson)): ?>
 <?= $ldjson . "\n" ?>
 <?php else: ?>
@@ -112,6 +135,42 @@ $cssAsset = is_file(FCPATH . 'themes/' . active_theme() . '/css/style.min.css')
 <?php endif; ?>
 </head>
 <body<?= ! empty($data_page) ? ' data-page="' . esc($data_page) . '"' : '' ?>>
+<div id="navProgressBar" aria-hidden="true"></div>
+<div id="sitePreloader" role="status" aria-live="polite" aria-label="Memuat halaman <?= esc($siteName) ?>">
+  <div class="sp-ring-wrap" aria-hidden="true">
+    <div class="sp-ring"></div>
+    <div class="sp-crest">PGRI 5</div>
+  </div>
+  <p class="sp-title"><?= esc($siteName) ?></p>
+  <p class="sp-sub">Memuat halaman, mohon tunggu...</p>
+  <div class="sp-bar" aria-hidden="true"><div class="sp-bar-fill"></div></div>
+</div>
+<script>
+(function(){
+  var el=document.getElementById('sitePreloader');
+  if(!el)return;
+  var key='smkpgri5_preloader_seen';
+  var seen=false;
+  try{seen=sessionStorage.getItem(key)==='1';}catch(e){}
+  if(seen){el.classList.add('is-skip');return;}
+  try{sessionStorage.setItem(key,'1');}catch(e){}
+  var start=Date.now(),closed=false;
+  function hide(){
+    if(closed)return;
+    closed=true;
+    var wait=Math.max(0,420-(Date.now()-start));
+    setTimeout(function(){
+      el.classList.add('is-done');
+      setTimeout(function(){if(el&&el.parentNode)el.parentNode.removeChild(el);},420);
+    },wait);
+  }
+  if(document.readyState==='complete'){hide();}
+  else{
+    window.addEventListener('load',hide,{once:true});
+    setTimeout(hide,3200);
+  }
+})();
+</script>
 
 <a class="skip-link" href="#konten">Lewati ke konten utama</a>
 

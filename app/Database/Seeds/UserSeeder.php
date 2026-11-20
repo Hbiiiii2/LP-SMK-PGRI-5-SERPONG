@@ -11,8 +11,8 @@ class UserSeeder extends Seeder
         $this->db->table('users')->truncate();
         $this->db->table('users')->insert([
             'username'   => 'administrator',
-            'email'      => 'admin@smanusantara.sch.id',
-            'password'   => password_hash('12345', PASSWORD_BCRYPT),
+            'email'      => 'admin@smkpgri5serpong.sch.id',
+            'password'   => password_hash('$mkp6ri5serpong', PASSWORD_BCRYPT),
             'full_name'  => 'Administrator',
             'role'       => 'superadmin',
             'is_active'  => 1,

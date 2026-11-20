@@ -10,9 +10,24 @@ class TestimonialSeeder extends Seeder
     {
         $this->db->table('testimonials')->truncate();
         $data = [
-            ['name' => 'Alya Putri', 'role' => 'Siswi Kelas XII MIPA · Medali Emas OSN 2026', 'quote' => 'Guru-guru di SMA Nusantara hafal nama setiap siswanya. Bimbingan olimpiadenya intensif dan fasilitas labnya lengkap — saya bangga menjadi bagian dari sekolah ini.', 'sort_order' => 1],
-            ['name' => 'H. Mahmud Efendi', 'role' => 'Orang Tua Siswa Kelas X', 'quote' => 'Pembiasaan karakter di SMA Nusantara sangat terasa. Anak saya jadi lebih disiplin, mandiri, dan rajin salat berjamaah. Komunikasi wali kelas dengan orang tua juga terbuka.', 'sort_order' => 2],
-            ['name' => 'Raka Firmansyah', 'role' => 'Alumni 2024 · Kini di Universitas Indonesia', 'quote' => 'Berkat bimbingan intensif UTBK sejak kelas XI, saya lolos ke PTN impian lewat jalur SNBP. Suasana belajarnya suportif — tidak ada anak yang dibiarkan tertinggal sendirian.', 'sort_order' => 3],
+            [
+                'name'       => 'Muhammad Rizky Pratama',
+                'role'       => 'Siswa Kelas XII TKJ · SMK PGRI 5 Serpong',
+                'quote'      => 'Praktik langsung di lab jaringan dan bimbingan guru produktif di SMK PGRI 5 Serpong membuat saya paham konfigurasi MikroTik, server Linux, dan siap saat menjalani PKL di perusahaan IT.',
+                'sort_order' => 1,
+            ],
+            [
+                'name'       => 'Siti Aisyah',
+                'role'       => 'Alumni MPLB 2024 · Staf Administrasi di Kawasan BSD',
+                'quote'      => 'Pembiasaan disiplin dan praktik administrasi perkantoran di SMK PGRI 5 Serpong sangat membantu saya beradaptasi cepat di dunia kerja. Tidak lama setelah lulus, saya langsung diterima bekerja.',
+                'sort_order' => 2,
+            ],
+            [
+                'name'       => 'Budi Santoso',
+                'role'       => 'Orang Tua Siswa Kelas XI',
+                'quote'      => 'Saya memilih SMK PGRI 5 Serpong karena akreditasinya A, lingkungannya tertib, dan guru-gurunya perhatian terhadap kedisiplinan serta akhlak anak. Perkembangan keterampilan anak saya sangat terasa.',
+                'sort_order' => 3,
+            ],
         ];
 
         $this->db->table('testimonials')->insertBatch($data);

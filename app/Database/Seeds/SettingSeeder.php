@@ -11,127 +11,134 @@ class SettingSeeder extends Seeder
         $this->db->table('settings')->truncate();
         $settings = [
             // Site identity
-            ['site_name', 'SMA Nusantara'],
+            ['site_name', 'SMK PGRI 5 SERPONG'],
             ['site_tagline', 'Unggul dalam Prestasi, Luhur dalam Budi Pekerti'],
-            ['site_description', 'SMA Nusantara adalah sekolah menengah atas unggulan di Jakarta Timur yang memadukan pengajaran disiplin, pembinaan karakter, dan budaya prestasi sejak 1987.'],
-            ['site_logo_text', 'SMA Nusantara'],
+            ['site_description', 'SMK PGRI 5 Serpong merupakan lembaga pendidikan kejuruan swasta terakreditasi A (NPSN 20614731) yang berdiri sejak 20 Desember 2007 di Kota Tangerang Selatan di bawah naungan YPLP PGRI Provinsi Banten. Berkomitmen mencetak lulusan vokasi yang kompeten, berkarakter IMTAQ & IPTEK, serta siap kerja maupun berwirausaha.'],
+            ['site_logo_text', 'SMK PGRI 5 SERPONG'],
             ['site_logo_icon', 'graduation-cap'],
-            ['site_url', 'https://smanusantara.sch.id'],
+            ['site_url', 'https://smkpgri5serpong.sch.id'],
 
             // Contact info
-            ['contact_phone', '(021) 8790-4521'],
-            ['contact_email', 'info@smanusantara.sch.id'],
-            ['contact_address', 'Jl. Cendekia No. 45, Cakung, Jakarta Timur 13910'],
-            ['contact_hours', 'Senin–Jumat: 07.00–15.30 WIB · Sabtu: 08.00–11.00 WIB'],
+            ['contact_phone', '(021) 7560-5421'],
+            ['contact_email', 'info@smkpgri5serpong.sch.id'],
+            ['contact_address', 'Jl. Raya Puspitek Serpong, RT. 05 / RW. 04, Kel. Serpong, Kec. Serpong, Kota Tangerang Selatan, Banten 15310'],
+            ['contact_hours', 'Senin – Sabtu, 07.00 – 17.00 WIB'],
 
             // Social media
-            ['social_facebook', 'https://facebook.com/smanusantara'],
-            ['social_instagram', 'https://instagram.com/sma.nusantara'],
-            ['social_youtube', 'https://youtube.com/@SMANusantara'],
-            ['social_tiktok', 'https://tiktok.com/@smanusantara'],
+            ['social_facebook', ''],
+            ['social_instagram', 'https://www.instagram.com/smkpgri5serpong/'],
+            ['social_youtube', ''],
+            ['social_tiktok', ''],
 
             // SEO / Meta
-            ['meta_author', 'SMA Nusantara'],
-            ['meta_keywords', 'sma nusantara, sekolah jakarta timur, kurikulum merdeka, sekolah unggulan, SPMB, akreditasi A'],
-            ['meta_description', 'SMA Nusantara adalah SMA unggulan terakreditasi A di Jakarta Timur. Kurikulum Merdeka dengan peminatan MIPA, IPS, dan Bahasa, 96% lulusan diterima PTN.'],
+            ['meta_author', 'SMK PGRI 5 Serpong'],
+            ['meta_keywords', 'SMK PGRI 5 Serpong, SMK Tangerang Selatan, SMK Serpong, SPMB SMK PGRI 5 Serpong, TKJ, RPL, MPLB, AKL, Pemasaran, akreditasi A, YPLP PGRI Banten'],
+            ['meta_description', 'Website resmi SMK PGRI 5 Serpong (NPSN 20614731), sekolah menengah kejuruan terakreditasi A di Serpong, Kota Tangerang Selatan. Program keahlian TKJ, RPL, MPLB, AKL, dan Bisnis Digital.'],
 
             // Hero section
             ['hero_badge', 'SPMB 2026/2027 · Terakreditasi A'],
-            ['hero_title', 'Tumbuh Berilmu, Tegak Berkarakter.'],
-            ['hero_subtitle', 'Sejak 1987, SMA Nusantara mendampingi 1.240 siswa bertumbuh lewat pengajaran yang disiplin, pembinaan karakter yang konsisten, dan budaya prestasi yang hidup setiap hari.'],
-            ['hero_btn_primary_text', 'Daftar SPMB'],
-            ['hero_btn_primary_url', '#spmb'],
-            ['hero_btn_secondary_text', 'Jelajahi Sekolah'],
+            ['hero_title', 'Vokasi Unggul, Siap Kerja & Berkarakter.'],
+            ['hero_subtitle', 'Sejak 2007, SMK PGRI 5 Serpong di bawah naungan YPLP PGRI Banten membina generasi muda Tangerang Selatan melalui pendidikan kejuruan berbasis IMTAQ, IPTEK, praktik industri, dan sertifikasi kompetensi.'],
+            ['hero_btn_primary_text', 'Daftar SPMB Online'],
+            ['hero_btn_primary_url', 'spmb'],
+            ['hero_btn_secondary_text', 'Profil Sekolah'],
             ['hero_btn_secondary_url', 'profile'],
-            ['spmb_url', 'https://spmb.smanusantara.sch.id'],
+            ['spmb_url', 'https://smkpgri5serpong.sch.id/spmb'],
 
             // Hero stats (JSON)
             ['hero_stats', json_encode([
-                ['label' => 'Siswa Aktif', 'value' => '1240+', 'icon' => 'user-graduate'],
-                ['label' => 'Guru & Tendik', 'value' => '86', 'icon' => 'chalkboard-teacher'],
-                ['label' => 'Medali & Piala', 'value' => '120+', 'icon' => 'trophy'],
+                ['label' => 'Siswa Aktif', 'value' => '500+', 'icon' => 'user-graduate'],
+                ['label' => 'Guru & Tendik', 'value' => '32', 'icon' => 'chalkboard-teacher'],
+                ['label' => 'Mitra Industri', 'value' => '40+', 'icon' => 'briefcase'],
             ])],
 
             // Principal (JSON)
             ['principal', json_encode([
-                'name' => 'Drs. Bambang Sutrisno, M.Pd.',
-                'photo' => '/images/default-principal.jpg',
+                'name' => 'Kepala SMK PGRI 5 Serpong',
+                'photo' => 'https://smkpgri5serpong.sch.id/uploads/principal/1794538587_5c485468af07a9b0.jpg',
                 'role' => 'Kepala Sekolah',
                 'role_title' => 'Kepala Sekolah',
-                'quote' => 'Setiap anak datang dengan bekal yang berbeda. Tugas kamilah memastikan mereka pulang dengan arah yang sama — menjadi pribadi yang berilmu, jujur, dan berguna bagi sesama.',
-                'welcome_message' => 'Assalamu’alaikum warahmatullahi wabarakatuh. Selamat datang di SMA Nusantara. Selama hampir empat dekade, kami memegang tiga hal sederhana: apel pagi yang tertib, guru yang hafal nama setiap siswanya, dan target belajar yang transparan bagi orang tua. Cara-cara sederhana inilah yang mengantar 96% lulusan kami menembus perguruan tinggi negeri. Pintu sekolah ini selalu terbuka — datang, lihat kelas kami, dan berbicaralah dengan guru kami.',
-                'sambutan' => 'Assalamu’alaikum warahmatullahi wabarakatuh. Selamat datang di SMA Nusantara. Selama hampir empat dekade, kami memegang tiga hal sederhana: apel pagi yang tertib, guru yang hafal nama setiap siswanya, dan target belajar yang transparan bagi orang tua. Cara-cara sederhana inilah yang mengantar 96% lulusan kami menembus perguruan tinggi negeri. Pintu sekolah ini selalu terbuka — datang, lihat kelas kami, dan berbicaralah dengan guru kami.',
-                'education' => 'Magister Manajemen Pendidikan, Universitas Negeri Jakarta',
-                'years_of_service' => 'Mengabdi sejak 2015',
+                'quote' => 'Pendidikan kejuruan bukan sekadar mengajarkan teori, melainkan membentuk keterampilan nyata, etos kerja disiplin, dan akhlak mulia agar setiap lulusan siap melangkah ke dunia industri maupun perguruan tinggi.',
+                'welcome_message' => 'Assalamu’alaikum warahmatullahi wabarakatuh. Selamat datang di portal resmi SMK PGRI 5 Serpong. Sejak berdiri pada tahun 2007 di Serpong, Kota Tangerang Selatan, kami terus berkomitmen menyelenggarakan pendidikan kejuruan yang selaras dengan kebutuhan Dunia Usaha dan Dunia Industri (DUDI). Dengan dukungan tenaga pendidik profesional, laboratorium praktik, program Praktik Kerja Lapangan (PKL), serta pembinaan karakter berbasis IMTAQ dan IPTEK, kami siap mendampingi putra-putri Anda meraih masa depan yang gemilang.',
+                'sambutan' => 'Assalamu’alaikum warahmatullahi wabarakatuh. Selamat datang di portal resmi SMK PGRI 5 Serpong. Sejak berdiri pada tahun 2007 di Serpong, Kota Tangerang Selatan, kami terus berkomitmen menyelenggarakan pendidikan kejuruan yang selaras dengan kebutuhan Dunia Usaha dan Dunia Industri (DUDI). Dengan dukungan tenaga pendidik profesional, laboratorium praktik, program Praktik Kerja Lapangan (PKL), serta pembinaan karakter berbasis IMTAQ dan IPTEK, kami siap mendampingi putra-putri Anda meraih masa depan yang gemilang.',
+                'education' => 'Magister Manajemen Pendidikan',
+                'years_of_service' => 'SMK PGRI 5 Serpong · YPLP PGRI Banten',
             ])],
 
             // About (JSON)
             ['about', json_encode([
-                'image' => '',
-                'content_title' => 'Mengenal Lebih Dekat SMA Nusantara',
-                'content_1' => 'Didirikan tahun 1987 oleh Yayasan Cendekia Nusantara, SMA Nusantara tumbuh dari tiga ruang kelas di sebuah ruko di Cakung menjadi kampus seluas 2,1 hektar dengan 1.240 siswa dan 86 guru serta tenaga kependidikan. Satu hal yang tidak pernah berubah: setiap anak dikenal namanya.',
-                'content_2' => 'Kami memadukan Kurikulum Merdeka dengan pendalaman materi, bimbingan olimpiade, dan kelas persiapan UTBK sejak kelas XI. Di luar kelas, 12 ekstrakurikuler aktif dan program pembiasaan karakter — apel pagi, jurnal refleksi, dan mentoring wali kelas — membentuk lulusan yang siap kuliah, siap kerja, dan siap bermasyarakat.',
-                'visi' => 'Menjadi sekolah unggul yang melahirkan lulusan beriman, cerdas, terampil, dan berdaya saing global pada tahun 2030.',
-                'misi' => 'Menyelenggarakan pembelajaran Kurikulum Merdeka yang aktif dan bermakna; menanamkan karakter disiplin, jujur, dan peduli melalui pembiasaan harian; mengembangkan potensi siswa lewat peminatan MIPA, IPS, dan Bahasa beserta pembinaan olimpiade dan UTBK; serta menjalin kemitraan erat dengan orang tua dan masyarakat.',
+                'image' => 'https://smkpgri5serpong.sch.id/uploads/about/1794538800_7e4c553dc4762e3c.png',
+                'content_title' => 'Sejarah & Profil SMK PGRI 5 Serpong',
+                'content_1' => 'SMK PGRI 5 Serpong resmi didirikan pada 20 Desember 2007 berdasarkan SK Pendirian No. 421.5/072.1/DIS P&K/2007 dengan NPSN 20614731. Bernaung di bawah Yayasan Pembina Lembaga Pendidikan (YPLP) PGRI Provinsi Banten dan berlokasi strategis di Jl. Raya Puspitek Serpong, Kota Tangerang Selatan, sekolah ini hadir menjawab kebutuhan tenaga terampil tingkat menengah di kawasan industri dan teknologi Tangerang Selatan.',
+                'content_2' => 'Berbekal Akreditasi A (Sangat Baik) dari BAN-S/M, SMK PGRI 5 Serpong menerapkan Kurikulum Merdeka berbasis proyek dan praktik bengkel/laboratorium nyata. Siswa dibekali kompetensi keahlian di bidang Teknologi Informasi maupun Bisnis & Manajemen, Praktik Kerja Lapangan (PKL) bersama mitra DUDI, Uji Kompetensi Keahlian (UKK), serta pembinaan karakter melalui ekstrakurikuler aktif.',
+                'visi' => 'Terwujudnya lulusan SMK PGRI 5 Serpong yang beriman dan bertakwa (IMTAQ), menguasai ilmu pengetahuan dan teknologi (IPTEK), terampil, mandiri, berakhlak mulia, serta berdaya saing di dunia kerja dan wirausaha.',
+                'misi' => 'Menyelenggarakan pembelajaran vokasi berbasis Kurikulum Merdeka yang selaras dengan standar Dunia Usaha dan Dunia Industri (DUDI); meningkatkan kualitas praktik laboratorium dan sertifikasi kompetensi siswa; menanamkan budaya disiplin, jujur, dan religius dalam kehidupan sekolah; serta memperluas kemitraan industri untuk penyaluran lulusan dan program PKL.',
                 'accreditation' => 'A',
-                'accreditation_label' => 'Unggul — BAN-S/M',
-                'highlights' => ['Terakreditasi A oleh BAN-S/M', 'Kurikulum Merdeka dengan peminatan MIPA, IPS, dan Bahasa', 'Rasio guru–siswa 1:15, 61% guru bergelar magister', '96% lulusan 2025 diterima perguruan tinggi negeri', 'Lab IPA, perpustakaan digital, sport hall, dan makerspace robotik'],
+                'accreditation_label' => 'Terakreditasi A — BAN-S/M (SK 755/BAN-SM/SK/2019)',
+                'highlights' => [
+                    'Terakreditasi A (Sangat Baik) oleh BAN-S/M · NPSN 20614731',
+                    'Berdiri sejak 20 Desember 2007 di bawah YPLP PGRI Provinsi Banten',
+                    'Program Keahlian relevan industri: TKJ, RPL, MPLB, AKL, dan Bisnis Digital',
+                    'Praktik Kerja Lapangan (PKL) & kemitraan aktif dengan 40+ DUDI di Tangerang Selatan',
+                    'Uji Kompetensi Keahlian (UKK), Bursa Kerja Khusus (BKK), dan pembinaan karakter IMTAQ & IPTEK',
+                ],
             ])],
 
             // Section settings (JSON)
             ['section_settings', json_encode([
-                'hero' => ['title' => 'Tumbuh Berilmu, Tegak Berkarakter', 'subtitle' => 'Profil SMA Nusantara — SMA unggulan terakreditasi A di Jakarta Timur', 'icon' => 'fa-school', 'show' => true],
-                'profile' => ['title' => 'Profil Sekolah', 'subtitle' => 'Mengenal lebih dekat sejarah, visi-misi, dan budaya SMA Nusantara', 'icon' => 'fa-building-columns', 'show' => true],
-                'programs' => ['title' => 'Program Unggulan', 'subtitle' => 'Peminatan MIPA, IPS, dan Bahasa dengan pendampingan olimpiade dan UTBK', 'icon' => 'fa-gem', 'show' => true],
-                'extracurriculars' => ['title' => 'Ekstrakurikuler', 'subtitle' => '12 kegiatan siswa — dari robotik dan paskibra hingga teater dan jurnalistik', 'icon' => 'fa-futbol', 'show' => true],
-                'teachers' => ['title' => 'Tenaga Pengajar', 'subtitle' => '86 guru dan tendik — 100% sarjana, 61% bergelar magister', 'icon' => 'fa-chalkboard-user', 'show' => true],
-                'achievements' => ['title' => 'Prestasi Siswa', 'subtitle' => '120+ medali dan piala — dari OSN dan robotik hingga tahfidz dan pencak silat', 'icon' => 'fa-trophy', 'show' => true],
-                'testimonials' => ['title' => 'Testimoni', 'subtitle' => 'Apa kata siswa, alumni, dan orang tua tentang SMA Nusantara?', 'icon' => 'fa-comment', 'show' => true],
-                'news' => ['title' => 'Berita & Artikel', 'subtitle' => 'Kabar kampus, prestasi, dan pengumuman SMA Nusantara', 'icon' => 'fa-newspaper', 'show' => true],
-                'events' => ['title' => 'Agenda & Kegiatan', 'subtitle' => 'Kalender resmi — UTS, open house, Cakrawala Cup, dan pentas seni', 'icon' => 'fa-calendar-days', 'show' => true],
-                'gallery' => ['title' => 'Galeri', 'subtitle' => 'Suasana kampus, laboratorium, dan panggung prestasi', 'icon' => 'fa-images', 'show' => true],
-                'faq' => ['title' => 'FAQ', 'subtitle' => 'Jawaban atas pertanyaan seputar SPMB, biaya, dan kurikulum', 'icon' => 'fa-circle-question', 'show' => true],
-                'downloads' => ['title' => 'Download Center', 'subtitle' => 'Brosur SPMB, formulir pendaftaran, kalender akademik, dan tata tertib', 'icon' => 'fa-download', 'show' => true],
-                'contact' => ['title' => 'Kontak Kami', 'subtitle' => 'Jl. Cendekia No. 45, Cakung — balasan maks. 1×24 jam hari kerja', 'icon' => 'fa-address-card', 'show' => true],
+                'hero' => ['title' => 'Vokasi Unggul, Siap Kerja & Berkarakter', 'subtitle' => 'SMK PGRI 5 Serpong — SMK swasta terakreditasi A di Kota Tangerang Selatan', 'icon' => 'fa-school', 'show' => true],
+                'profile' => ['title' => 'Profil & Sejarah Sekolah', 'subtitle' => 'Mengenal perjalanan SMK PGRI 5 Serpong sejak 2007, visi-misi, dan budaya belajar', 'icon' => 'fa-building-columns', 'show' => true],
+                'programs' => ['title' => 'Program Keahlian', 'subtitle' => 'Pilihan jurusan vokasi unggulan di bidang Teknologi Informasi serta Bisnis & Manajemen', 'icon' => 'fa-gem', 'show' => true],
+                'extracurriculars' => ['title' => 'Ekstrakurikuler', 'subtitle' => 'Wadah pengembangan bakat, kepemimpinan, teknologi, olahraga, dan karakter siswa', 'icon' => 'fa-futbol', 'show' => true],
+                'teachers' => ['title' => 'Tenaga Pendidik', 'subtitle' => 'Guru produktif, adaptif, dan normatif yang berpengalaman mendampingi siswa vokasi', 'icon' => 'fa-chalkboard-user', 'show' => true],
+                'achievements' => ['title' => 'Prestasi Siswa', 'subtitle' => 'Capaian siswa SMK PGRI 5 Serpong di LKS, akademik, olahraga, dan seni', 'icon' => 'fa-trophy', 'show' => true],
+                'testimonials' => ['title' => 'Testimoni', 'subtitle' => 'Kisah nyata siswa, alumni, dan orang tua bersama SMK PGRI 5 Serpong', 'icon' => 'fa-comment', 'show' => true],
+                'news' => ['title' => 'Berita & Pengumuman', 'subtitle' => 'Informasi kegiatan sekolah, prestasi LKS, PKL, dan pengumuman resmi SPMB', 'icon' => 'fa-newspaper', 'show' => true],
+                'events' => ['title' => 'Agenda Sekolah', 'subtitle' => 'Kalender kegiatan resmi — UKK, pembekalan PKL, SPMB, dan peringatan hari besar', 'icon' => 'fa-calendar-days', 'show' => true],
+                'gallery' => ['title' => 'Galeri Kegiatan', 'subtitle' => 'Dokumentasi praktik laboratorium, kegiatan siswa, dan suasana kampus Serpong', 'icon' => 'fa-images', 'show' => true],
+                'faq' => ['title' => 'Tanya Jawab (FAQ)', 'subtitle' => 'Jawaban atas pertanyaan umum seputar SPMB, jurusan, PKL, dan biaya pendidikan', 'icon' => 'fa-circle-question', 'show' => true],
+                'downloads' => ['title' => 'Pusat Unduhan', 'subtitle' => 'Brosur SPMB, formulir pendaftaran, kalender akademik, dan panduan PKL', 'icon' => 'fa-download', 'show' => true],
+                'contact' => ['title' => 'Kontak Kami', 'subtitle' => 'Jl. Raya Puspitek Serpong, Tangerang Selatan — layanan informasi hari kerja', 'icon' => 'fa-address-card', 'show' => true],
             ])],
 
             // Page banners (JSON)
             ['page_banners', json_encode([
-                'news' => ['badge' => 'Berita & Artikel', 'title' => 'Kabar Kampus', 'subtitle' => 'Ditulis tim jurnalistik siswa, dikurasi kesiswaan — terbit setiap Senin dan Kamis'],
-                'single_post' => ['badge' => 'Detail Berita', 'title' => 'Baca Berita', 'subtitle' => 'Liputan lengkap kegiatan dan prestasi warga SMA Nusantara'],
-                'pages' => ['badge' => 'Halaman', 'title' => 'Baca Halaman', 'subtitle' => 'Informasi resmi SMA Nusantara'],
-                'downloads' => ['badge' => 'Download Center', 'title' => 'Dokumen Resmi', 'subtitle' => 'Brosur SPMB, formulir, kalender akademik, dan tata tertib — selalu versi terbaru'],
+                'news' => ['badge' => 'Berita & Artikel', 'title' => 'Kabar SMK PGRI 5 Serpong', 'subtitle' => 'Liputan kegiatan praktik, prestasi siswa, kerja sama industri, dan pengumuman sekolah'],
+                'single_post' => ['badge' => 'Detail Berita', 'title' => 'Baca Berita', 'subtitle' => 'Informasi lengkap kegiatan dan prestasi warga SMK PGRI 5 Serpong'],
+                'pages' => ['badge' => 'Halaman Informasi', 'title' => 'Informasi Resmi', 'subtitle' => 'Informasi resmi SMK PGRI 5 Serpong, Kota Tangerang Selatan'],
+                'downloads' => ['badge' => 'Pusat Unduhan', 'title' => 'Dokumen Resmi', 'subtitle' => 'Brosur SPMB, formulir, kalender akademik, dan panduan PKL — selalu versi terbaru'],
             ])],
 
             // Footer
-            ['footer_description', 'SMA Nusantara — sekolah menengah atas unggulan di Cakung, Jakarta Timur. Berdiri sejak 1987 di bawah Yayasan Cendekia Nusantara.'],
-            ['footer_copyright', '© 2026 SMA Nusantara — All rights reserved.'],
+            ['footer_description', 'SMK PGRI 5 Serpong — Sekolah Menengah Kejuruan terakreditasi A (NPSN 20614731) di Kota Tangerang Selatan. Berdiri sejak 2007 di bawah naungan YPLP PGRI Provinsi Banten.'],
+            ['footer_copyright', '© 2026 SMK PGRI 5 Serpong — Seluruh hak cipta dilindungi.'],
             ['footer_services', json_encode([
-                ['label' => 'MIPA Unggulan', 'url' => 'program'],
-                ['label' => 'IPS & Kewirausahaan', 'url' => 'program'],
-                ['label' => 'Bahasa & Budaya', 'url' => 'program'],
-                ['label' => 'Bimbingan UTBK', 'url' => 'program'],
-                ['label' => 'Beasiswa Prestasi', 'url' => 'achievements'],
+                ['label' => 'Teknik Komputer & Jaringan', 'url' => 'program/teknik-komputer-dan-jaringan'],
+                ['label' => 'Rekayasa Perangkat Lunak', 'url' => 'program/rekayasa-perangkat-lunak'],
+                ['label' => 'Manajemen Perkantoran (MPLB)', 'url' => 'program/manajemen-perkantoran-dan-layanan-bisnis'],
+                ['label' => 'Akuntansi & Keuangan (AKL)', 'url' => 'program/akuntansi-dan-keuangan-lembaga'],
+                ['label' => 'Bisnis Digital / Pemasaran', 'url' => 'program/bisnis-digital-dan-pemasaran'],
             ])],
             ['footer_links', json_encode([
-                ['label' => 'SPMB Online', 'url' => 'https://spmb.smanusantara.sch.id'],
-                ['label' => 'E-Learning', 'url' => '#'],
-                ['label' => 'Perpustakaan Digital', 'url' => '#'],
+                ['label' => 'SPMB Online', 'url' => 'spmb'],
+                ['label' => 'Profil Sekolah', 'url' => 'profile'],
+                ['label' => 'Pusat Unduhan', 'url' => 'downloads'],
                 ['label' => 'FAQ', 'url' => 'faq'],
                 ['label' => 'Kontak', 'url' => 'contact'],
             ])],
 
             // Theme
-            ['active_theme', 'nusantara'],
+            ['active_theme', 'smkpgri5'],
 
             // Counter stats (JSON)
             ['counter_stats', json_encode([
-                ['icon' => 'user-graduate', 'number' => '1240', 'suffix' => '+', 'label' => 'Siswa Aktif'],
-                ['icon' => 'chalkboard-teacher', 'number' => '86', 'suffix' => '', 'label' => 'Guru & Tendik'],
-                ['icon' => 'trophy', 'number' => '120', 'suffix' => '+', 'label' => 'Medali & Piala'],
-                ['icon' => 'graduation-cap', 'number' => '96', 'suffix' => '%', 'label' => 'Lulusan Diterima PTN'],
+                ['icon' => 'user-graduate', 'number' => '500', 'suffix' => '+', 'label' => 'Siswa Aktif'],
+                ['icon' => 'chalkboard-teacher', 'number' => '32', 'suffix' => '', 'label' => 'Guru & Tendik'],
+                ['icon' => 'briefcase', 'number' => '40', 'suffix' => '+', 'label' => 'Mitra Industri (DUDI)'],
+                ['icon' => 'award', 'number' => '18', 'suffix' => '+', 'label' => 'Tahun Mengabdi'],
             ])],
-            // SPMB steps (JSON) — tahapan pendaftaran, bisa beda per jenjang
+
+            // SPMB steps (JSON)
             ['spmb_steps', json_encode(array_map(
                 fn($s) => ['title' => $s['title'], 'desc' => $s['desc']],
                 default_spmb_steps()

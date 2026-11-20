@@ -47,6 +47,7 @@ $socialMap = [
 $jsAsset = is_file(FCPATH . 'themes/' . active_theme() . '/js/script.min.js')
     ? 'js/script.min.js'
     : 'js/script.js';
+$jsVer = @filemtime(FCPATH . 'themes/' . active_theme() . '/' . $jsAsset) ?: '1';
 ?>
 </main>
 
@@ -55,7 +56,7 @@ $jsAsset = is_file(FCPATH . 'themes/' . active_theme() . '/js/script.min.js')
     <div>
       <div class="foot-brand">
         <div class="foot-logo-badge">
-          <img src="<?= esc($logoUrl) ?>" alt="Logo Resmi <?= esc($siteName) ?>" width="46" height="46">
+          <img src="<?= esc($logoUrl) ?>" alt="Logo Resmi <?= esc($siteName) ?>" width="46" height="46" loading="lazy" decoding="async">
         </div>
         <div>
           <div class="foot-brand-name"><?= esc($siteName) ?></div>
@@ -162,6 +163,6 @@ $jsAsset = is_file(FCPATH . 'themes/' . active_theme() . '/js/script.min.js')
   <span id="toastMsg">Pesan terkirim.</span>
 </div>
 
-<script defer src="<?= esc(theme_asset($jsAsset)) ?>"></script>
+<script defer src="<?= esc(theme_asset($jsAsset)) ?>?v=<?= esc((string) $jsVer) ?>"></script>
 </body>
 </html>
