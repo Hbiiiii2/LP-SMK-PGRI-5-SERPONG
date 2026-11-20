@@ -1,0 +1,371 @@
+/**
+ * SMK PGRI 5 Serpong — Admin CMS Theme Layer
+ * Consumes design tokens from themes/smkpgri5/css/tokens.css so Public Site
+ * and Admin CMS share one authoritative palette and typographic foundation.
+ */
+
+:root,
+[data-coreui-theme="light"] {
+  --cui-primary: var(--color-primary, #087F3E);
+  --cui-primary-rgb: 8, 127, 62;
+  --cui-primary-text-emphasis: var(--color-primary-dark, #056B35);
+  --cui-primary-bg-subtle: var(--color-primary-light, #E8F5EC);
+  --cui-primary-border-subtle: var(--color-primary-border, #BCE3CA);
+
+  --cui-secondary: var(--color-secondary, #087CC1);
+  --cui-secondary-rgb: 8, 124, 193;
+  --cui-secondary-color: var(--color-text-secondary, #64748B);
+
+  --cui-link-color: var(--color-secondary-dark, #075985);
+  --cui-link-hover-color: var(--color-primary-dark, #056B35);
+  --cui-body-font-family: var(--font-sans, 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif);
+  --cui-body-bg: var(--color-background, #F8FAFC);
+  --cui-body-color: var(--color-text-primary, #111827);
+  --cui-border-color: var(--color-border, #E2E8F0);
+  --cui-border-radius: var(--radius-sm, 6px);
+  --cui-border-radius-lg: var(--radius-md, 8px);
+}
+
+html,
+body {
+  overflow-x: clip;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif);
+}
+
+.lucide-icon {
+  display: inline-block;
+  vertical-align: -0.15em;
+  flex-shrink: 0;
+}
+
+/* CoreUI Primary Button & Control Overrides (Kill #5856d6 indigo default) */
+.btn-primary {
+  --cui-btn-bg: var(--color-primary, #087F3E);
+  --cui-btn-border-color: var(--color-primary, #087F3E);
+  --cui-btn-hover-bg: var(--color-primary-dark, #056B35);
+  --cui-btn-hover-border-color: var(--color-primary-dark, #056B35);
+  --cui-btn-active-bg: var(--color-primary-dark, #056B35);
+  --cui-btn-active-border-color: var(--color-primary-dark, #056B35);
+  --cui-btn-disabled-bg: var(--color-primary, #087F3E);
+  --cui-btn-disabled-border-color: var(--color-primary, #087F3E);
+  --cui-btn-focus-shadow-rgb: 8, 127, 62;
+}
+
+.btn-outline-primary {
+  --cui-btn-color: var(--color-primary-dark, #056B35);
+  --cui-btn-border-color: var(--color-primary, #087F3E);
+  --cui-btn-hover-bg: var(--color-primary, #087F3E);
+  --cui-btn-hover-border-color: var(--color-primary, #087F3E);
+  --cui-btn-active-bg: var(--color-primary-dark, #056B35);
+  --cui-btn-active-border-color: var(--color-primary-dark, #056B35);
+}
+
+.btn-outline-secondary {
+  --cui-btn-color: var(--color-text-primary, #111827);
+  --cui-btn-border-color: var(--color-border-strong, #CBD5E1);
+  --cui-btn-hover-bg: var(--color-background, #F8FAFC);
+  --cui-btn-hover-color: var(--color-text-primary, #111827);
+  --cui-btn-hover-border-color: var(--color-text-secondary, #64748B);
+}
+
+.text-primary {
+  color: var(--color-primary, #087F3E) !important;
+}
+
+.bg-primary {
+  background-color: var(--color-primary, #087F3E) !important;
+}
+
+.bg-primary-subtle.text-primary {
+  background-color: var(--color-primary-light, #E8F5EC) !important;
+  color: var(--color-primary-dark, #056B35) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-primary, #087F3E);
+  box-shadow: var(--focus-ring, 0 0 0 3px rgba(8, 127, 62, 0.22));
+}
+
+.form-check-input:checked {
+  background-color: var(--color-primary, #087F3E);
+  border-color: var(--color-primary, #087F3E);
+}
+
+/* Keep uniform architectural control radii across Admin forms & lists */
+.btn,
+.form-control,
+.form-select,
+.input-group-text {
+  border-radius: var(--radius-sm, 6px);
+}
+
+.card,
+.alert,
+.modal-content {
+  border-radius: var(--radius-md, 8px);
+}
+
+.card {
+  border: 1px solid var(--color-border, #E2E8F0);
+  box-shadow: var(--shadow-xs, 0 1px 2px rgba(17, 24, 39, 0.04));
+}
+
+/* Institutional Forest Sidebar */
+.sidebar-institutional {
+  --cui-sidebar-bg: #044723;
+  --cui-sidebar-color: #E2E8F0;
+  --cui-sidebar-border-color: rgba(255, 255, 255, 0.12);
+  --cui-sidebar-nav-title-color: rgba(255, 255, 255, 0.62);
+  --cui-sidebar-nav-link-color: rgba(255, 255, 255, 0.86);
+  --cui-sidebar-nav-link-hover-color: #FFFFFF;
+  --cui-sidebar-nav-link-hover-bg: rgba(255, 255, 255, 0.09);
+  --cui-sidebar-nav-link-active-color: #FFFFFF;
+  --cui-sidebar-nav-link-active-bg: rgba(255, 255, 255, 0.14);
+}
+
+.sidebar-institutional .sidebar-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  min-height: 60px;
+}
+
+.sidebar-institutional .sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.admin-brand-logo-wrap {
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+  border-radius: var(--radius-sm, 6px);
+  background-color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.admin-brand-logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.sidebar-institutional .sidebar-nav .nav-title {
+  margin-top: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-institutional .sidebar-nav .nav-link {
+  border-left: 3px solid transparent;
+  border-radius: 0 !important;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+}
+
+.sidebar-institutional .sidebar-nav .nav-link .nav-icon {
+  margin: 0 !important;
+  flex: 0 0 18px;
+  opacity: 0.88;
+}
+
+.sidebar-institutional .sidebar-nav .nav-link.active {
+  border-left-color: var(--color-accent-yellow, #FACC15);
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.sidebar-institutional .sidebar-nav .nav-link.active .nav-icon {
+  color: var(--color-accent-yellow, #FACC15);
+  opacity: 1;
+}
+
+/* Header & Main Layout */
+.admin-header {
+  min-height: 60px;
+}
+
+.admin-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Dashboard KPI & Operations */
+.admin-kpi-card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.125rem;
+  background-color: var(--color-surface, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: var(--radius-md, 8px);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.admin-kpi-card:hover {
+  border-color: var(--color-primary-border, #BCE3CA);
+  box-shadow: var(--shadow-sm, 0 2px 6px rgba(17, 24, 39, 0.06));
+  color: inherit;
+}
+
+.admin-kpi-card.is-attention {
+  border-color: var(--color-accent-red-border, #FECACA);
+  background-color: #FFFBFB;
+}
+
+.admin-kpi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--color-text-primary, #111827);
+  margin-bottom: 2px;
+}
+
+.admin-kpi-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary, #64748B);
+}
+
+.admin-kpi-sub {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary, #64748B);
+  margin-top: 2px;
+}
+
+.admin-kpi-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm, 6px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--color-primary-light, #E8F5EC);
+  color: var(--color-primary-dark, #056B35);
+}
+
+.admin-kpi-icon.is-blue {
+  background-color: var(--color-secondary-light, #E8F4FC);
+  color: var(--color-secondary-dark, #075985);
+}
+
+.admin-kpi-icon.is-red {
+  background-color: var(--color-accent-red-soft, #FEF2F2);
+  color: var(--color-accent-red, #DC2626);
+}
+
+.admin-kpi-icon.is-amber {
+  background-color: var(--color-accent-yellow-soft, #FEF9C3);
+  color: var(--color-accent-yellow-ink, #854D0E);
+}
+
+.admin-action-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: var(--radius-sm, 6px);
+  background-color: var(--color-surface, #FFFFFF);
+  color: var(--color-text-primary, #111827);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.admin-action-link:hover {
+  border-color: var(--color-primary, #087F3E);
+  background-color: var(--color-primary-light, #E8F5EC);
+  color: var(--color-primary-dark, #056B35);
+}
+
+.admin-thumb-placeholder {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm, 6px);
+  background-color: var(--color-secondary-light, #E8F4FC);
+  color: var(--color-secondary-dark, #075985);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Responsive Admin Data Tables — prevents mobile narrow squeezing & status badge truncation */
+.table-responsive > .table-crud {
+  min-width: 720px;
+}
+
+.table-crud thead th {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+  color: var(--color-text-secondary, #64748B);
+  border-bottom: 1px solid var(--color-border-strong, #CBD5E1);
+  padding: 0.75rem 1rem;
+  background-color: var(--color-background, #F8FAFC);
+  white-space: nowrap;
+}
+
+.table-crud tbody td {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-border, #E2E8F0);
+}
+
+.table-crud .badge {
+  white-space: nowrap;
+}
+
+.table-crud .btn-group {
+  white-space: nowrap;
+}
+
+/* Footer link institutional alignment */
+.admin-footer-link {
+  color: var(--color-secondary-dark, #075985);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.admin-footer-link:hover {
+  color: var(--color-primary-dark, #056B35);
+  text-decoration: underline;
+}
+
+@media (max-width: 575.98px) {
+  main.main {
+    padding: 1rem !important;
+  }
+
+  .admin-kpi-value {
+    font-size: 1.25rem;
+  }
+}
+
+.lucide-icon {
+  vertical-align: -0.15em;
+  flex-shrink: 0;
+}
+
+@keyframes lucideSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.lucide-spin {
+  animation: lucideSpin 1s linear infinite;
+}
